@@ -1,7 +1,7 @@
 # Tic Tac Toe - Pygame
 
 ## Mô tả
-Đây là một trò chơi Tic Tac Toe (Cờ ca rô) được viết bằng Python sử dụng thư viện Pygame. Thêm chế đọ chơi với máy:
+Tic Tac Toe, viết bằng Python, dùng Pygame. Thêm chế đọ chơi với máy:
 - **Chế độ 2 người chơi**: Hai người chơi thay phiên nhau đánh "X" và "O".
 - **Chế độ chơi với Bot**: Người chơi đi trước với "O", bot sẽ chơi với "X" và có chiến lược cơ bản.
 
