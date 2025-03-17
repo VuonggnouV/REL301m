@@ -4,7 +4,7 @@ import random
 pygame.init()
 
 # Cài đặt cửa sổ
-WIDTH, HEIGHT = 300, 450  # Tăng chiều cao để thêm không gian cho nút và thông báo
+WIDTH, HEIGHT = 300, 450 
 LINE_WIDTH = 5
 BOARD_ROWS = 3
 BOARD_COLS = 3
@@ -12,7 +12,7 @@ SQUARE_SIZE = WIDTH // BOARD_COLS
 CIRCLE_RADIUS = SQUARE_SIZE // 3
 CIRCLE_WIDTH = 5
 CROSS_WIDTH = 5
-SPACE = SQUARE_SIZE // 4
+SPACE = SQUARE_SIZE // 4 
 
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
@@ -24,18 +24,22 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Tic Tac Toe")
 screen.fill(WHITE)
 
-font = pygame.font.Font(None, 36)  # Font để hiển thị kết quả
+font = pygame.font.Font(None, 36)
 
-# Nút chế độ chơi
 BUTTON_WIDTH, BUTTON_HEIGHT = 120, 40
-PLAY_WITH_BOT_BUTTON = pygame.Rect(20, HEIGHT - 100, BUTTON_WIDTH, BUTTON_HEIGHT)  # Di chuyển nút xuống dưới
-TWO_PLAYER_BUTTON = pygame.Rect(160, HEIGHT - 100, BUTTON_WIDTH, BUTTON_HEIGHT)  # Di chuyển nút xuống dưới
+PLAY_WITH_BOT_BUTTON = pygame.Rect(20, HEIGHT - 100, BUTTON_WIDTH, BUTTON_HEIGHT)  
+TWO_PLAYER_BUTTON = pygame.Rect(160, HEIGHT - 100, BUTTON_WIDTH, BUTTON_HEIGHT)
 
+
+#Function
+
+#line bàn cờ
 def draw_lines():
     for i in range(1, BOARD_ROWS):
         pygame.draw.line(screen, BLACK, (0, SQUARE_SIZE * i), (WIDTH, SQUARE_SIZE * i), LINE_WIDTH)
         pygame.draw.line(screen, BLACK, (SQUARE_SIZE * i, 0), (SQUARE_SIZE * i, WIDTH), LINE_WIDTH)
 
+#X O
 def draw_xo():
     for row in range(BOARD_ROWS):
         for col in range(BOARD_COLS):
@@ -47,10 +51,12 @@ def draw_xo():
             elif board[row][col] == "O":
                 pygame.draw.circle(screen, BLACK, (col * SQUARE_SIZE + SQUARE_SIZE // 2, row * SQUARE_SIZE + SQUARE_SIZE // 2), CIRCLE_RADIUS, CIRCLE_WIDTH)
 
+#winning line
 def draw_winning_line():
     if winning_line:
         pygame.draw.line(screen, RED, winning_line[0], winning_line[1], 10)  # Vẽ đường gạch thắng
 
+#check win 
 def check_winner():
     global winning_line
     for row in range(BOARD_ROWS):
@@ -79,7 +85,7 @@ def is_full():
 def restart_game():
     global board, player, winner, winning_line
     board = [[" " for _ in range(BOARD_COLS)] for _ in range(BOARD_ROWS)]
-    player = starting_player  # Sử dụng starting_player để xác định ai đánh trước
+    player = starting_player
     winner = None
     winning_line = None
     screen.fill(WHITE)
@@ -130,6 +136,24 @@ def check_win(player):
     if all(board[i][i] == player for i in range(BOARD_ROWS)) or all(board[i][BOARD_ROWS - 1 - i] == player for i in range(BOARD_ROWS)):
         return True
     return False
+"""
+ĐI TRƯỚC:
+    Luôn đi nước đầu tiên vào trung tâm (nếu có thể).
+
+    Nếu trung tâm đã bị đối thủ chọn trước, hãy đi vào một góc.
+
+    Nếu đối thủ đi vào góc đối diện, hãy kiểm soát hàng hoặc cột.
+
+    Luôn chặn đối thủ khi họ sắp thắng.
+
+    Nếu đối thủ có hai dấu liên tiếp với ô trống còn lại trên hàng/cột/đường chéo => chặn.
+_________________________________
+ĐI SAU:
+    Nếu đối thủ đi trung tâm trước, hãy chọn một góc.
+
+    Nếu đối thủ đi vào góc, hãy đi trung tâm ngay lập tức.
+
+"""
 
 def bot_move():
     available_moves = [(row, col) for row in range(BOARD_ROWS) for col in range(BOARD_COLS) if board[row][col] == " "]
