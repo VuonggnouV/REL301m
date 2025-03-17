@@ -19,14 +19,17 @@
 
 ## Cấu trúc mã nguồn
 
-### 1. Khởi tạo Pygame và các biến toàn cục
+### 1. Import thư viện và khởi tạo Pygame
+
 ```python
 import pygame
 import random
-
 pygame.init()
 ```
-Khởi tạo thư viện `pygame` và `random` để sử dụng trong chương trình.
+
+- **pygame**: Thư viện chính để tạo giao diện trò chơi.
+- **random**: Dùng để chọn nước đi ngẫu nhiên cho bot.
+- **pygame.init()**: Khởi tạo Pygame.
 
 ### 2. Thiết lập cửa sổ trò chơi
 ```python
@@ -158,13 +161,10 @@ def bot_move():
     ...
 ```
 - Bot ưu tiên đánh vào trung tâm, sau đó các góc, rồi mới đến cạnh.
+- Tối ưu nước đi để thắng và chặn.
 
 ---
 
 ## Tổng kết
 - **Tic Tac Toe** hỗ trợ chơi với bot hoặc hai người chơi.
 - Bot có chiến lược thông minh để tăng độ khó.
-- Hiển thị người thắng bằng đường gạch đỏ.
-
-Chúc bạn chơi vui vẻ!
-
