@@ -3,7 +3,7 @@
 ## Mô tả
 Tic Tac Toe, viết bằng Python, dùng Pygame. Thêm chế đọ chơi với máy:
 - **Chế độ 2 người chơi**: Hai người chơi thay phiên nhau đánh "X" và "O".
-- **Chế độ chơi với Bot**: Người chơi đi trước với "O", bot sẽ chơi với "X" và có chiến lược cơ bản.
+- **Chế độ chơi với Bot**: Người chơi đi trước với "O", bot sẽ chơi với "X" và có chiến lược cơ bản. (Tham khảo chiến lược chơi không thua từ https://www.wikihow.com/Win-at-Tic-Tac-Toe và dùng Deepseek để sinh code)
 
 ---
 
