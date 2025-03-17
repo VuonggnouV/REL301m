@@ -9,15 +9,11 @@
 
 ## Cài đặt và chạy chương trình
 
-1. Cài đặt Python (phiên bản 3.x)
-2. Cài đặt thư viện Pygame nếu chưa có:
+1. Cài đặt thư viện Pygame nếu chưa có:
    ```bash
    pip install pygame
    ```
-3. Chạy chương trình:
-   ```bash
-   python tic_tac_toe.py
-   ```
+   
 
 ---
 
